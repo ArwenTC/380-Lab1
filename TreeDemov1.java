@@ -131,8 +131,15 @@ class Node{
 	   with a largest key
 	   */
 	   public int getMax(Node root){
-         //implement in here
-         return 0;
+         int returnValue = 0;
+         // Traverses right until there is nothing right.
+         // The rightest node is always the largest.
+         if (root.right != null) {
+            return getMax(root.right);
+         } else {
+            // Base Case, leftest node;
+            return root.value;
+         }
 	   }
 	   
 	   
@@ -196,7 +203,7 @@ class Node{
 	         System.out.println();
 
 	         System.out.print("\nmin-value\t:   " + t1.getMin(t1.root));
-	         //System.out.print("\nmax-value\t:   " + t1.getMax(t1.root));
+	         System.out.print("\nmax-value\t:   " + t1.getMax(t1.root));
          } else {
             System.out.print("Tree is empty!");
          }
