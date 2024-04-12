@@ -94,8 +94,8 @@ class Node{
             System.out.print(root.value + ",");
          }
 	   }
-	   
-	   
+      
+      
 	   
 	   /*
 	   a method to find the node in the tree
@@ -106,15 +106,22 @@ class Node{
 		   return true;
 	   }
 	   
-	   
-	   
+      
+      
 	   /*
 	   a method to find the node in the tree
 	   with a smallest key
 	   */
 	   public int getMin(Node root){
-         //implement in here
-	      return 0;
+         int returnValue = 0;
+         // Traverses left until there is nothing left.
+         // The leftest node is always the smallest.
+         if (root.left != null) {
+            return getMin(root.left);
+         } else {
+            // Base Case, leftest node;
+            return root.value;
+         }
 	   }
 	  
 	  
@@ -178,12 +185,22 @@ class Node{
 	      t1.insert(90);
 	      t1.insert(22);
 	            
-	      System.out.print("pre-order\t:   ");
-	      t1.preOrderTraversal(t1.root);
-	      System.out.print("\nin-order\t\t:   ");
-	      t1.inOrderTraversal(t1.root);
-	      System.out.print("\npost-order\t:   ");
-	      t1.postOrderTraversal(t1.root);
+         // If there is no root node, does not run any of the code.
+         if (t1.root != null) {
+	         System.out.print("pre-order\t:   ");
+	         t1.preOrderTraversal(t1.root);
+	         System.out.print("\nin-order\t\t:   ");
+	         t1.inOrderTraversal(t1.root);
+	         System.out.print("\npost-order\t:   ");
+	         t1.postOrderTraversal(t1.root);
+	         System.out.println();
+
+	         System.out.print("\nmin-value\t:   " + t1.getMin(t1.root));
+	         //System.out.print("\nmax-value\t:   " + t1.getMax(t1.root));
+         } else {
+            System.out.print("Tree is empty!");
+         }
 	      System.out.println();
+         
 	   }  
 	}
