@@ -50,7 +50,7 @@ class Node{
 	           
 	         }//closing while
 	      
-	      }//closing main if-else 
+	      }//closing main if-else
 	   }
 	   
 	   /*
@@ -59,7 +59,7 @@ class Node{
 	   */
 	   public void preOrderTraversal(Node root){
 		//implement in here
-		   
+		
 	   }
 
 	   
@@ -68,7 +68,13 @@ class Node{
 	   in-order traversal
 	   */
 	   public void inOrderTraversal(Node root){
-	      //implement in here
+         // Traverses the binary tree until a null node is reached.	      
+         if (root != null) {
+            inOrderTraversal(root.left);
+            System.out.print(root.value + ",");
+            inOrderTraversal(root.right);
+         }
+         
 	   }
 	   
 	   
@@ -89,8 +95,8 @@ class Node{
 	   with a specific value
 	   */
 	   public boolean find(Node root, int key){
-		 //implement in here
-		  
+		   //implement in here
+		   return true;
 	   }
 	   
 	   
@@ -101,7 +107,7 @@ class Node{
 	   */
 	   public int getMin(Node root){
          //implement in here
-	      
+	      return 0;
 	   }
 	  
 	  
@@ -112,6 +118,7 @@ class Node{
 	   */
 	   public int getMax(Node root){
          //implement in here
+         return 0;
 	   }
 	   
 	   
@@ -154,10 +161,10 @@ class Node{
 
 
 
-	public class TreeDemo{
+	public class TreeDemov1{
 	   public static void main(String[] args){
 	      BinarySearchTree t1  = new BinarySearchTree();
-	      t1.insert( 24);
+	      t1.insert(24);
 	      t1.insert(80);
 	      t1.insert(18);
 	      t1.insert(9);
