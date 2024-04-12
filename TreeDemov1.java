@@ -1,7 +1,15 @@
+/**
+* Node structure to be used in binary tree.
+* Contains a value and addresses to other nodes.
+*/
 class Node{
 	   int value;
 	   Node left, right;
 	   
+      /**
+      * Constructor
+      * @param value key to be assigned to the node.
+      */
 	   public Node(int value){
 	      this.value = value;
 	      left = null;
@@ -10,18 +18,19 @@ class Node{
 
 	}
 
+   /**
+   * Binary search tree structure.
+   * Contains a single node, and methods to traverse the tree along the nodes.
+   *
+   */
 	class BinarySearchTree{
 
 	   Node root;
 	  
-	   
-	   /*
-	   recursive insert method
-		
-	   */
-	   /*
-	   inserts a node into the tree
-	   */
+	   /**
+	   * Adds a node to the binary tree
+      * @param value integer value to add as a new node in the tree
+      */
 	   public void insert(int value){
 	      //tree is empty
 	      if(root == null){
@@ -53,14 +62,15 @@ class Node{
 	      }//closing main if-else
 	   }
 	   
-	   /*
-	   pre-order traversal
-	   Prints the value of every node preorder
-	   */
+	  
+	   /**
+	   * Traverses the tree in pre-order. Prints out each node.
+      * @param root the root of the tree to start at.
+      */
 	   public void preOrderTraversal(Node root){
          // Traverses the binary tree until a null node is reached.	      
          if (root != null) {
-            System.out.print(root.value + ",");
+            System.out.print(root.value + " ");
             preOrderTraversal(root.left);
             preOrderTraversal(root.right);
          }
@@ -68,38 +78,41 @@ class Node{
 
 	   
 	   
-	   /*
-	   in-order traversal
-	   */
+	   /**
+	   * Traverses the tree in in-order. Prints out each node.
+      * @param root the root of the tree to start at.
+      */
 	   public void inOrderTraversal(Node root){
          // Traverses the binary tree until a null node is reached.	      
          if (root != null) {
             inOrderTraversal(root.left);
-            System.out.print(root.value + ",");
+            System.out.print(root.value + " ");
             inOrderTraversal(root.right);
          }
 	   }
 	   
 	   
 	   
-	   /*
-	   post-order traversal
-	   */
-	  
+	   /**
+	   * Traverses the tree in post-order. Prints out each node.
+      * @param root the root of the tree to start at.
+      */
 	   public void postOrderTraversal(Node root){
          // Traverses the binary tree until a null node is reached.	      
          if (root != null) {
             postOrderTraversal(root.left);
             postOrderTraversal(root.right);
-            System.out.print(root.value + ",");
+            System.out.print(root.value + " ");
          }
 	   }
       
       
 	   
-	   /*
-	   a method to find the node in the tree
-	   with a specific value
+	   /**
+	   * Determines if a specific key is in the tree
+      * @param root starting root to search at
+      * @param key value to search for
+      * @return true/false value of whether the tree contains the key parameter
 	   */
 	   public boolean find(Node root, int key){
 		   //If key < value, traverses left. > value, right, = value, returns true. Reaches null, returns false.
@@ -122,9 +135,10 @@ class Node{
 	   
       
       
-	   /*
-	   a method to find the node in the tree
-	   with a smallest key
+	   /**
+	   * Finds the smallest node value in the tree.
+	   * @param root starting root to search at
+      * @return integer value of the root key of the smallest root value
 	   */
 	   public int getMin(Node root){
          int returnValue = 0;
@@ -140,9 +154,10 @@ class Node{
 	  
 	  
 	  
-	   /*
-	   a method to find the node in the tree
-	   with a largest key
+	   /**
+	   * Finds the largest node value in the tree.
+	   * @param root starting root to search at
+      * @return integer value of the root key of the largest root value
 	   */
 	   public int getMax(Node root){
          int returnValue = 0;
@@ -159,8 +174,9 @@ class Node{
 	   
 	   
 	   /*
-	   this method will not compile until getMax
-	   is implemented
+	   * Removes a node from the binary tree.
+      * @param root root node to start searching for the key
+      * @param key node to be removed.
 	   */
 	   public Node delete(Node root, int key){
 	      
@@ -195,10 +211,17 @@ class Node{
 	}
 
 
-
+   /**
+   *  Driver class
+   */
 	public class TreeDemov1{
+      /**
+      * Main driver function
+      * @param args function arguments. Unused in this case
+      */
 	   public static void main(String[] args){
 	      BinarySearchTree t1  = new BinarySearchTree();
+         // Inserts data into the tree
 	      t1.insert(24);
 	      t1.insert(80);
 	      t1.insert(18);
@@ -232,9 +255,9 @@ class Node{
 	         System.out.print("\nfind(93) =\t   " + t1.find(t1.root, 93));
 
          } else {
+            // Runs if tree is empty
             System.out.print("Tree is empty!");
          }
-	      System.out.println();
          
 	   }  
 	}
