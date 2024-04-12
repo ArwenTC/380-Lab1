@@ -58,8 +58,12 @@ class Node{
 	   Prints the value of every node preorder
 	   */
 	   public void preOrderTraversal(Node root){
-		//implement in here
-		
+         // Traverses the binary tree until a null node is reached.	      
+         if (root != null) {
+            System.out.print(root.value + ",");
+            inOrderTraversal(root.left);
+            inOrderTraversal(root.right);
+         }
 	   }
 
 	   
@@ -74,7 +78,6 @@ class Node{
             System.out.print(root.value + ",");
             inOrderTraversal(root.right);
          }
-         
 	   }
 	   
 	   
@@ -172,7 +175,7 @@ class Node{
 	      t1.insert(22);
 	            
 	      System.out.print("in-order :   ");
-	      t1.inOrderTraversal(t1.root);
+	      t1.preOrderTraversal(t1.root);
 	      System.out.println();
 	           
 	      
