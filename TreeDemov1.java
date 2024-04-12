@@ -61,8 +61,8 @@ class Node{
          // Traverses the binary tree until a null node is reached.	      
          if (root != null) {
             System.out.print(root.value + ",");
-            inOrderTraversal(root.left);
-            inOrderTraversal(root.right);
+            preOrderTraversal(root.left);
+            preOrderTraversal(root.right);
          }
 	   }
 
@@ -87,8 +87,12 @@ class Node{
 	   */
 	  
 	   public void postOrderTraversal(Node root){
-         //implement in here
-		   
+         // Traverses the binary tree until a null node is reached.	      
+         if (root != null) {
+            postOrderTraversal(root.left);
+            postOrderTraversal(root.right);
+            System.out.print(root.value + ",");
+         }
 	   }
 	   
 	   
@@ -174,10 +178,12 @@ class Node{
 	      t1.insert(90);
 	      t1.insert(22);
 	            
-	      System.out.print("in-order :   ");
+	      System.out.print("pre-order\t:   ");
 	      t1.preOrderTraversal(t1.root);
+	      System.out.print("\nin-order\t\t:   ");
+	      t1.inOrderTraversal(t1.root);
+	      System.out.print("\npost-order\t:   ");
+	      t1.postOrderTraversal(t1.root);
 	      System.out.println();
-	           
-	      
 	   }  
 	}
