@@ -102,8 +102,22 @@ class Node{
 	   with a specific value
 	   */
 	   public boolean find(Node root, int key){
-		   //implement in here
-		   return true;
+		   //If key < value, traverses left. > value, right, = value, returns true. Reaches null, returns false.
+         if (root != null) {
+            if (key < root.value) {
+               // Recursive call to left tree.
+               return find(root.left, key);
+            } else if (key > root.value) {
+               // Recursive call to right tree.
+               return find(root.right, key);
+            } else {
+               // Base case 1. (Item found)
+               return true;
+            }
+         } else {
+            // Base case 2. (Item not found)
+            return false;
+         }
 	   }
 	   
       
@@ -204,6 +218,19 @@ class Node{
 
 	         System.out.print("\nmin-value\t:   " + t1.getMin(t1.root));
 	         System.out.print("\nmax-value\t:   " + t1.getMax(t1.root));
+	         System.out.println();
+
+	         System.out.print("\nfind(9) =\t   " + t1.find(t1.root, 9));
+	         System.out.print("\nfind(18) =\t   " + t1.find(t1.root, 18));
+	         System.out.print("\nfind(22) =\t   " + t1.find(t1.root, 22));
+	         System.out.print("\nfind(24) =\t   " + t1.find(t1.root, 24));
+	         System.out.print("\nfind(80) =\t   " + t1.find(t1.root, 80));
+	         System.out.print("\nfind(90) =\t   " + t1.find(t1.root, 90));
+            
+	         System.out.print("\nfind(17) =\t   " + t1.find(t1.root, 17));
+	         System.out.print("\nfind(21) =\t   " + t1.find(t1.root, 21));
+	         System.out.print("\nfind(93) =\t   " + t1.find(t1.root, 93));
+
          } else {
             System.out.print("Tree is empty!");
          }
